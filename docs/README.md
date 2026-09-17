@@ -10,7 +10,9 @@ Le [`brief initial`](00-cadrage/brief-initial.md) décrit la vision fonctionnell
 
 ## Rechercher et décider
 
-Les rapports de ressources ouvertes sont dans [`05-recherche`](05-recherche/). Les décisions et sessions sont conservées dans [`04-tracabilite`](04-tracabilite/), avec le [`registre des données`](04-tracabilite/registre-donnees.md) et le [`modèle de fiche d’expérience`](04-tracabilite/fiche-experience.md). La feuille de route décrit les modules, jalons, dépendances, risques et critères de sortie ; le registre des tâches conserve les blocages et les conditions de reprise.
+Les rapports de ressources ouvertes sont dans [`05-recherche`](05-recherche/). Les décisions et sessions sont conservées dans [`04-tracabilite`](04-tracabilite/), avec le [`registre des données`](04-tracabilite/registre-donnees.md), le [`registre de stockage`](04-tracabilite/registre-stockage.md) et le [`modèle de fiche d’expérience`](04-tracabilite/fiche-experience.md). La feuille de route décrit les modules, jalons, dépendances, risques et critères de sortie ; le registre des tâches conserve les blocages et les conditions de reprise.
+
+La préparation de la collecte historique est documentée dans la [`stratégie multi-années`](02-planification/strategie-collecte-multi-annees.md) et sa configuration versionnée dans [`config/collecte_multi_annees.json`](../config/collecte_multi_annees.json).
 
 ## Règle de qualité
 

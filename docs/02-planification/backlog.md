@@ -29,7 +29,9 @@ Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés 
 | DS-010B | Pilote multi-zone isolé | Terminé | Un brut partagé, une sortie par zone, manifeste global | `src/multi_zone_download.py` |
 | DS-011 | Validateur de manifeste | Terminé | Dates, zones, doublons, erreurs, fichiers et checksums contrôlés | `src/manifest_validator.py` |
 | DS-011A | Collecte courte multi-zone valide | Terminé | Manifeste court sans anomalie et rapport qualité archivé | `docs/04-tracabilite/artefacts/ds011a-20240101-20240102/` |
-| DS-011B | Rapport multi-années de couverture | Bloqué | Couverture par zone et année sur période retenue | Rapport qualité et tables |
+| DS-011B | Préparer la collecte multi-années | Terminé | Période, volume, stockage Drive, reprise et critères d’arrêt documentés | `config/collecte_multi_annees.json`, `strategie-collecte-multi-annees.md` |
+| DS-011C | Collecter et valider une première année complète | À faire | Année 1991 validée avant toute accélération | Manifeste, rapport qualité et archive Drive |
+| DS-011D | Rapport multi-années de couverture | Bloqué | Couverture par zone et année sur période retenue | Rapport qualité et tables |
 
 ## Jalon J2 — Série quotidienne et onset
 
@@ -67,7 +69,7 @@ Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés 
 
 ## Prochain objectif unique
 
-**DS-011A est terminée.** Le prochain objectif unique devient la préparation de DS-011B : choisir une période multi-années et une stratégie de téléchargement/reprise, sans encore lancer une collecte volumineuse non planifiée. Toute analyse d’onset réelle reste bloquée jusqu’à DS-011B.
+**DS-011A est terminée et la préparation DS-011B est terminée.** Le prochain objectif unique devient DS-011C : collecter et valider l’année 1991 comme test complet avant toute accélération. Toute analyse d’onset réelle reste bloquée jusqu’à DS-011D.
 
 ## Définition générale de terminé
 

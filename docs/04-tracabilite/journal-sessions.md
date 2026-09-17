@@ -144,3 +144,17 @@ Le rapport qualité indique `valid=true`, 10 enregistrements attendus, 10 observ
 ### Décision
 
 DS-011A est terminée. DS-011B devient le prochain objectif : préparer une collecte multi-années avant son exécution. Les deux jours validés ne doivent pas être utilisés pour calculer une climatologie ou un onset.
+
+## Session 2026-09-17 — Préparation DS-011B
+
+### Décisions
+
+La période 1991–2024 a été retenue. Les années 1991–2020 serviront de référence climatique et les années 2021–2024 de période d’évaluation séparée. Cette séparation est compatible avec une normale de trente ans et évite de mélanger la référence avec les années récentes évaluées.
+
+### Stockage
+
+Le quota Drive a été consulté en lecture seule : limite de 15 GiB, usage total d’environ 0,28 MiB. Le pilote indique environ 13,6 MiB de brut global par jour et 95,6 KiB de rasters nettoyés par jour pour les cinq zones. Les bruts seront donc temporaires et supprimés après découpage validé ; les sorties nettoyées, séries, manifestes et rapports seront archivés par année sur Drive.
+
+### Validation de préparation
+
+La configuration `config/collecte_multi_annees.json`, la stratégie de collecte et le registre de stockage ont été ajoutés. La collecte complète n’est pas lancée dans cette session. DS-011B est considérée comme préparée ; DS-011C devient le prochain objectif : une seule année complète, 1991, suivie d’un rapport qualité avant accélération.

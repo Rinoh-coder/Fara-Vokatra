@@ -12,7 +12,7 @@ Ce registre distingue les sources candidates des données effectivement utilisé
 | DATA-006 | Calendrier agricole Madagascar | FAO | Fenêtres culturales et contraintes | National/régional selon document | CC BY-NC-SA 3.0 indiqué | Référence contextuelle | Ne remplace pas les calendriers locaux |
 | DATA-007 | C3S Seasonal Forecast | Copernicus CDS | Prévision probabiliste | Hindcasts 1993–2016 ; grille 1° | CC-BY selon fiche ; vérifier | Hors MVP immédiat | Résolution grossière, compte CDS |
 | DATA-008 | Stations météorologiques | DGM Madagascar | Validation locale | À obtenir | À négocier/vérifier | Non disponible | Accès, métadonnées et qualité inconnus |
-| DATA-009 | CHIRPS v3 daily final/rnl | Climate Hazards Center | Pipeline MVP, pluie quotidienne | 1981–présent ; 0,05° | CC BY 4.0 selon page officielle | Implémenté | Valeurs quotidiennes désagrégées ; biais de maille et relief |
+| DATA-009 | CHIRPS v3 daily final/rnl | Climate Hazards Center | Pipeline MVP, pluie quotidienne | 1981–présent ; 0,05° | CC BY 4.0 selon page officielle | Implémenté ; collecte historique planifiée 1991–2024 | Produit quotidien dérivé des cumuls pentadaires ; biais de maille et relief |
 
 ## Manifeste minimal requis pour une donnée utilisée
 
@@ -23,3 +23,5 @@ Pour chaque téléchargement, conserver l’URL ou la requête, la date d’acc�
 Voir `docs/05-recherche/01-climat.md`, `02-rendements.md`, `03-onset.md`, `04-prevision.md`, `05-optimisation.md` et `06-reproductibilite.md`.
 
 Le script utilisé pour DATA-009 est `src/chirps_pipeline.py`. La version, l’URL exacte, les empreintes SHA-256 et les paramètres de découpage sont écrits dans le manifeste JSON généré sous `data/processed/chirps/manifests/`.
+
+La configuration historique planifiée est `config/collecte_multi_annees.json`. Elle sépare la référence 1991–2020 de l’évaluation 2021–2024 et impose une validation annuelle avant archivage.

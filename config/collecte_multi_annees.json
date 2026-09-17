@@ -1,0 +1,41 @@
+{
+  "version": "0.1",
+  "dataset": "CHIRPS v3 daily final/rnl",
+  "access_date": "2026-09-17",
+  "period": {
+    "start": "1991-01-01",
+    "end": "2024-12-31",
+    "reference_start": "1991-01-01",
+    "reference_end": "2020-12-31",
+    "evaluation_start": "2021-01-01",
+    "evaluation_end": "2024-12-31"
+  },
+  "zones_config": "config/zones_madagascar.json",
+  "product": "rnl",
+  "stage": "final",
+  "chunking": {
+    "unit": "year",
+    "order": "ascending",
+    "validate_after_each_chunk": true,
+    "stop_on_validation_error": true
+  },
+  "storage": {
+    "raw_local": "temporary_only",
+    "delete_raw_after_successful_crop": true,
+    "processed_local": "data/processed/chirps/final/rnl/<zone_id>/YYYYMMDD.tif",
+    "series_local": "data/processed/chirps/series/<zone_id>/daily.csv",
+    "manifest_local": "data/processed/chirps/manifests/",
+    "drive_archive_root": "Fara-Vokatra/CHIRPS-v3/1991-2024",
+    "drive_archive_units": ["year", "zone", "manifest", "quality-report"],
+    "keep_on_drive": ["cleaned_rasters", "daily_series", "manifests", "quality_reports", "checksums"],
+    "do_not_archive": ["temporary_raw_global_rasters", "python_cache", "logs_without_provenance"]
+  },
+  "quality": {
+    "min_coverage": 0.95,
+    "required_zones": ["northwest", "east", "highlands", "west", "south"],
+    "required_days_per_non_leap_year": 365,
+    "required_days_per_leap_year": 366,
+    "validate_manifest_before_next_year": true
+  },
+  "decision": "Preparation only; no multi-year download is authorized by this file alone."
+}

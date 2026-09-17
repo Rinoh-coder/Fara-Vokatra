@@ -45,9 +45,9 @@ Les artefacts sont `CONTEXT.md`, cette feuille de route, `docs/02-planification/
 
 **Objectif :** obtenir un petit ensemble multi-zone réellement complet avant toute analyse.
 
-**État :** en cours, bloqué par la collecte réseau longue.
+**État :** préparation terminée ; collecte annuelle contrôlée à démarrer.
 
-DS-011A est terminée : un échantillon de deux jours et cinq zones possède un manifeste valide et un rapport qualité archivé. La prochaine tâche unique est de préparer DS-011B : choisir une période multi-années, estimer le volume, définir la stratégie de reprise et décider de l’archivage Drive avant toute nouvelle collecte. Les fichiers lourds peuvent être archivés dans Drive, mais le dépôt doit conserver les commandes, manifestes légers et checksums.
+DS-011A est terminée : un échantillon de deux jours et cinq zones possède un manifeste valide et un rapport qualité archivé. DS-011B est maintenant préparée : la période 1991–2024 est définie, 1991–2020 sert de référence et 2021–2024 d’évaluation, le stockage Drive est structuré par année et les bruts globaux sont temporaires. La prochaine tâche unique est DS-011C : collecter et valider l’année 1991 avant toute accélération.
 
 **Critères de sortie :** toutes les dates et zones attendues sont présentes ; aucun checksum ne diverge ; aucune erreur n’est enregistrée ; les chemins sont archivés ; le rapport JSON est lisible ; la période et la version CHIRPS sont documentées.
 
@@ -134,7 +134,7 @@ Une tâche bloquée est également historisée. Elle ne doit pas être marquée 
 
 ## 7. Prochain objectif unique
 
-**DS-011B — Préparer une collecte multi-années contrôlée avant exécution.**
+**DS-011C — Collecter et valider une première année complète, 1991.**
 
 Aucune nouvelle fonctionnalité d’analyse ou d’optimisation ne doit être commencée avant la clôture ou le blocage documenté de cette tâche.
 

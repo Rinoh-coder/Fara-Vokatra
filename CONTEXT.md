@@ -12,7 +12,7 @@ Le projet doit démontrer des compétences de data science par une démarche rep
 
 ## État au 2026-09-17
 
-Le dépôt GitHub était vide à l’initialisation. Le cahier des charges est conservé dans `docs/00-cadrage/brief-initial.md`. La structure documentaire, le cadrage scientifique, le MVP, le backlog et six rapports de recherche ont été ajoutés. La feuille de route et le registre des tâches définissent désormais les jalons et l’ordre de travail. Le pipeline initial de téléchargement et nettoyage CHIRPS v3 est implémenté sur la branche `feat/chirps-download-cleaning`, ainsi qu’une agrégation quotidienne contrôlant la couverture des pixels, une analyse annuelle d’onset sans inclure l’année évaluée dans sa climatologie, un protocole multi-zone documenté, un pilote multi-zone testé et un validateur de manifestes. DS-011A est terminée avec un manifeste valide pour deux jours et cinq zones.
+Le dépôt GitHub était vide à l’initialisation. Le cahier des charges est conservé dans `docs/00-cadrage/brief-initial.md`. La structure documentaire, le cadrage scientifique, le MVP, le backlog et six rapports de recherche ont été ajoutés. La feuille de route et le registre des tâches définissent désormais les jalons et l’ordre de travail. Le pipeline initial de téléchargement et nettoyage CHIRPS v3 est implémenté sur la branche `feat/chirps-download-cleaning`, ainsi qu’une agrégation quotidienne contrôlant la couverture des pixels, une analyse annuelle d’onset sans inclure l’année évaluée dans sa climatologie, un protocole multi-zone documenté, un pilote multi-zone testé et un validateur de manifestes. DS-011A est terminée avec un manifeste valide pour deux jours et cinq zones. DS-011B est préparée avec une collecte 1991–2024, une référence 1991–2020, une évaluation 2021–2024 et une stratégie Drive par année.
 
 La recherche recommande de commencer par **CHIRPS** pour la pluie, complété par **ERA5-Land** ou NASA POWER pour les variables météorologiques. CHIRPS est pertinent pour l’onset mais la transition v2–v3 doit être contrôlée avant une série longue. Pour les rendements, FAOSTAT/HDX et HarvestStat-Africa sont des pistes initiales, mais la couverture et les définitions régionales doivent être auditées. Deux baselines d’onset sont maintenant implémentées dans `src/onset.py` : règle à seuils avec rejet de faux onset et anomalies cumulées de type Liebmann. La validation doit être chronologique, par rolling origin ou `TimeSeriesSplit`.
 
@@ -36,8 +36,8 @@ Les rapports thématiques se trouvent dans `docs/05-recherche/`. Les sources pri
 
 ## Prochaines actions immédiates
 
-1. Réaliser DS-011B : préparer la période multi-années, le volume, la reprise et l’archivage Drive avant collecte.
-2. Ne pas démarrer DS-014A, le rendement ou l’optimisation avant la validation de DS-011B.
+1. Réaliser DS-011C : collecter et valider l’année 1991, puis archiver ses artefacts sur Drive.
+2. Ne pas démarrer DS-011D, DS-014A, le rendement ou l’optimisation avant validation de chaque année et du rapport qualité multi-années.
 3. Produire une première série CHIRPS multi-années avec `src/chirps_series.py` et `src/season_analysis.py`.
 4. Écrire le protocole de backtesting et figer les périodes d’entraînement et de test.
 5. Vérifier la couverture régionale et les unités des rendements FAOSTAT/HDX ou HarvestStat-Africa.
