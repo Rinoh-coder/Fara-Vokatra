@@ -1,0 +1,27 @@
+# Environnements Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Données et sorties générées
+/data/raw/*
+/data/processed/*
+/data/external/*
+/reports/generated/*
+*.parquet
+*.nc
+*.tif
+*.h5
+
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Système
+.DS_Store
