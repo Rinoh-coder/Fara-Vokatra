@@ -62,3 +62,17 @@ Trois tests supplémentaires couvrent le calcul de moyenne, le rejet explicite d
 ### Limites
 
 La moyenne actuelle porte sur la BBOX découpée. Elle ne constitue pas une moyenne administrative ou une moyenne pondérée par les terres cultivées. Une géométrie de zone d’étude devra être ajoutée avant les analyses régionales.
+
+## Session 2026-09-17 — Analyse annuelle d’onset
+
+### Actions réalisées
+
+Le module `src/season_analysis.py` lit la série quotidienne, vérifie les années complètes, applique les deux baselines d’onset et écrit une table annuelle. Pour la méthode Liebmann, la climatologie de chaque année est calculée avec les autres années disponibles selon une stratégie leave-one-year-out.
+
+### Validation
+
+Trois tests supplémentaires couvrent la climatologie indépendante, le signalement d’une année incomplète et la sortie CSV. La suite complète compte treize tests réussis.
+
+### Limites
+
+L’analyse est actuellement calendaire et exploratoire. Elle ne définit pas encore une saison agricole locale traversant deux années civiles et ne remplace pas une validation par stations ou par observations de semis.
