@@ -10,6 +10,7 @@ import hashlib
 import json
 import logging
 import sys
+import time
 from dataclasses import asdict, dataclass
 from datetime import date, timedelta
 from pathlib import Path
@@ -71,14 +72,17 @@ def download(url: str, destination: Path, timeout: int) -> bool:
         return False
     temporary = destination.with_suffix(destination.suffix + ".part")
     LOG.info("Téléchargement : %s", url)
+    started = time.monotonic()
     try:
-        with requests.get(url, stream=True, timeout=timeout) as response:
+        with requests.get(url, stream=True, timeout=(10, min(timeout, 30))) as response:
             if response.status_code == 404:
                 raise FileNotFoundError(f"Fichier CHIRPS introuvable (404): {url}")
             response.raise_for_status()
             with temporary.open("wb") as handle:
                 for chunk in response.iter_content(chunk_size=1024 * 1024):
                     if chunk:
+                        if time.monotonic() - started > timeout:
+                            raise TimeoutError(f"Téléchargement dépassant {timeout}s: {url}")
                         handle.write(chunk)
     except Exception:
         temporary.unlink(missing_ok=True)
