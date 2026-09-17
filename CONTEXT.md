@@ -12,7 +12,7 @@ Le projet doit démontrer des compétences de data science par une démarche rep
 
 ## État au 2026-09-17
 
-Le dépôt GitHub était vide à l’initialisation. Le cahier des charges est conservé dans `docs/00-cadrage/brief-initial.md`. La structure documentaire, le cadrage scientifique, le MVP, le backlog et six rapports de recherche ont été ajoutés. Le pipeline initial de téléchargement et nettoyage CHIRPS v3 est implémenté sur la branche `feat/chirps-download-cleaning`, ainsi qu’une agrégation quotidienne contrôlant la couverture des pixels et une analyse annuelle d’onset sans inclure l’année évaluée dans sa climatologie.
+Le dépôt GitHub était vide à l’initialisation. Le cahier des charges est conservé dans `docs/00-cadrage/brief-initial.md`. La structure documentaire, le cadrage scientifique, le MVP, le backlog et six rapports de recherche ont été ajoutés. Le pipeline initial de téléchargement et nettoyage CHIRPS v3 est implémenté sur la branche `feat/chirps-download-cleaning`, ainsi qu’une agrégation quotidienne contrôlant la couverture des pixels, une analyse annuelle d’onset sans inclure l’année évaluée dans sa climatologie et un protocole multi-zone documenté.
 
 La recherche recommande de commencer par **CHIRPS** pour la pluie, complété par **ERA5-Land** ou NASA POWER pour les variables météorologiques. CHIRPS est pertinent pour l’onset mais la transition v2–v3 doit être contrôlée avant une série longue. Pour les rendements, FAOSTAT/HDX et HarvestStat-Africa sont des pistes initiales, mais la couverture et les définitions régionales doivent être auditées. Deux baselines d’onset sont maintenant implémentées dans `src/onset.py` : règle à seuils avec rejet de faux onset et anomalies cumulées de type Liebmann. La validation doit être chronologique, par rolling origin ou `TimeSeriesSplit`.
 
@@ -36,7 +36,7 @@ Les rapports thématiques se trouvent dans `docs/05-recherche/`. Les sources pri
 
 ## Prochaines actions immédiates
 
-1. Remplacer la BBOX technique par la géométrie officielle de la zone d’étude.
+1. Tester les cinq boîtes de `config/zones_madagascar.json` comme emprises exploratoires, sans les appeler régions administratives.
 2. Télécharger un petit échantillon CHIRPS sur plusieurs zones contrastées, sans commiter les fichiers bruts.
 3. Produire une première série CHIRPS multi-années avec `src/chirps_series.py` et `src/season_analysis.py`.
 4. Écrire le protocole de backtesting et figer les périodes d’entraînement et de test.

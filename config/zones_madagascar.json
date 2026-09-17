@@ -1,0 +1,41 @@
+{
+  "version": "0.1",
+  "purpose": "Boîtes techniques d'échantillonnage climatique, non frontières administratives",
+  "crs": "EPSG:4326",
+  "source_context": [
+    "https://climateknowledgeportal.worldbank.org/country/madagascar",
+    "https://www.fao.org/giews/countrybrief/country.jsp?code=MDG"
+  ],
+  "zones": [
+    {
+      "id": "northwest",
+      "label_fr": "Nord-ouest humide et exposé aux épisodes cycloniques",
+      "bbox": [44.5, -16.0, 48.5, -11.5],
+      "rationale": "Boîte exploratoire pour un secteur où les pluies et les épisodes de forte pluie peuvent différer du Sud et des Hautes Terres."
+    },
+    {
+      "id": "east",
+      "label_fr": "Versant est humide",
+      "bbox": [48.0, -24.0, 50.5, -16.0],
+      "rationale": "Boîte exploratoire représentant le versant exposé aux flux humides de l'océan Indien."
+    },
+    {
+      "id": "highlands",
+      "label_fr": "Hautes Terres centrales",
+      "bbox": [45.5, -22.5, 48.5, -18.0],
+      "rationale": "Boîte exploratoire associée à une altitude et une saisonnalité différentes des façades côtières."
+    },
+    {
+      "id": "west",
+      "label_fr": "Ouest et ouest-sud-ouest",
+      "bbox": [43.5, -22.0, 47.0, -16.0],
+      "rationale": "Boîte exploratoire destinée à tester une saisonnalité et une exposition différentes de l'Est."
+    },
+    {
+      "id": "south",
+      "label_fr": "Sud et sud-ouest sec",
+      "bbox": [43.5, -26.0, 47.5, -21.0],
+      "rationale": "Boîte exploratoire prioritaire pour tester les années à faible pluie et les retards d'onset."
+    }
+  ]
+}

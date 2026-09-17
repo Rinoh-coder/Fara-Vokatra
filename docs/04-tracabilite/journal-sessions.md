@@ -76,3 +76,17 @@ Trois tests supplémentaires couvrent la climatologie indépendante, le signalem
 ### Limites
 
 L’analyse est actuellement calendaire et exploratoire. Elle ne définit pas encore une saison agricole locale traversant deux années civiles et ne remplace pas une validation par stations ou par observations de semis.
+
+## Session 2026-09-17 — Protocole multi-zone
+
+### Actions réalisées
+
+Les prochaines analyses sont cadrées par cinq boîtes d’échantillonnage techniques dans `config/zones_madagascar.json`. Le protocole distingue explicitement les sources établissant une variabilité climatique générale des choix de coordonnées qui restent exploratoires.
+
+### Validation méthodologique
+
+Le protocole impose les mêmes produit, période, seuil de couverture et paramètres d’onset entre zones. Il prévoit une comparaison stratifiée, une analyse des divergences supérieures à 30 jours comme outil de tri et une revue des années atypiques plutôt qu’une conclusion automatique.
+
+### Limites
+
+Les boîtes ne sont ni des frontières administratives ni des zones agricoles. Leur pertinence devra être contrôlée avec des données géographiques, des calendriers locaux et, si possible, des observations de stations.
