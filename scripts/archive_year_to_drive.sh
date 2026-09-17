@@ -42,16 +42,16 @@ create_folder() {
 }
 
 YEAR_ID=$(create_folder "${YEAR}" "${PARENT_ID}")
-for zone in northwest east highlands west south; do
-  ZONE_ID=$(create_folder "${zone}" "${YEAR_ID}")
-  shopt -s nullglob
-  files=("processed/chirps/final/rnl/${zone}"/*.tif)
-  shopt -u nullglob
-  for file in "${files[@]}"; do
-    gws drive files create --upload "$file" --upload-content-type image/tiff --json "$(python3 -c 'import json,sys; print(json.dumps({"name":sys.argv[1],"parents":[sys.argv[2]]}))' "$(basename "$file")" "$ZONE_ID")" >/dev/null
-  done
-done
-for file in "${MANIFEST_REL}" "${REPORT_REL}"; do
-  gws drive files create --upload "$file" --upload-content-type application/json --json "$(python3 -c 'import json,sys; print(json.dumps({"name":sys.argv[1],"parents":[sys.argv[2]]}))' "$(basename "$file")" "$YEAR_ID")" >/dev/null
+ZIP_REL="processed/chirps/fara-vokatra-${YEAR}-cleaned.zip"
+CHECKSUMS_REL="processed/chirps/fara-vokatra-${YEAR}-archive-checksums.txt"
+rm -f "${ZIP_REL}"
+zip -q -r -9 "${ZIP_REL}" processed/chirps/final/rnl
+sha256sum "${ZIP_REL}" "${MANIFEST_REL}" "${REPORT_REL}" > "${CHECKSUMS_REL}"
+for file in "${MANIFEST_REL}" "${REPORT_REL}" "${ZIP_REL}" "${CHECKSUMS_REL}"; do
+  mime="application/octet-stream"
+  [[ "$file" == *.json ]] && mime="application/json"
+  [[ "$file" == *.zip ]] && mime="application/zip"
+  [[ "$file" == *.txt ]] && mime="text/plain"
+  gws drive files create --upload "$file" --upload-content-type "$mime" --json "$(python3 -c 'import json,sys; print(json.dumps({"name":sys.argv[1],"parents":[sys.argv[2]]}))' "$(basename "$file")" "$YEAR_ID")" >/dev/null
 done
 printf 'Archive Drive créée pour %s dans %s\n' "$YEAR" "$YEAR_ID"

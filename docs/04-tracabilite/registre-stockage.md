@@ -4,7 +4,7 @@ Ce registre sera rempli au fur et à mesure des années collectées. Il ne doit 
 
 | Année | Période | Zones | Enregistrements attendus | Manifeste local | Rapport qualité | Archive Drive | Checksum archive | Statut |
 |---|---|---:|---:|---|---|---|---|---|
-| 1991 | 1991-01-01 → 1991-12-31 | 5 | 1 825 | À produire | À produire | À produire | À produire | À faire |
+| 1991 | 1991-01-01 → 1991-12-31 | 5 | 1 825 | `/tmp/fara-vokatra-1991/.../year_1991_rnl_final.json` | `year_1991_quality.json`, `valid=true` | Drive `Fara-Vokatra/1991/fara-vokatra-1991-cleaned.zip` | `fara-vokatra-1991-archive-checksums.txt` | Validé |
 | 1992 | 1992-01-01 → 1992-12-31 | 5 | 1 830 | À produire | À produire | À produire | À produire | À faire |
 | 1993–2020 | annuel | 5 | À calculer par année | À produire | À produire | À produire | À produire | À faire |
 | 2021–2024 | annuel | 5 | À calculer par année | À produire | À produire | À produire | À produire | À faire |
@@ -13,7 +13,7 @@ La période complète contient **12 419 jours** et **62 095 couples date/zone** 
 
 ## Règle de stockage
 
-Les fichiers bruts globaux ne sont que des fichiers de travail locaux. Ils ne sont pas copiés sur Drive. Les sorties nettoyées, les séries CSV, les manifestes et les rapports qualité sont archivés dans `Fara-Vokatra/CHIRPS-v3/1991-2024/` selon l’année et la zone.
+Les fichiers bruts globaux ne sont que des fichiers de travail locaux. Ils ne sont pas copiés sur Drive. Les sorties nettoyées sont regroupées dans un ZIP annuel pour réduire les appels API ; les manifestes, rapports qualité et checksums sont archivés séparément dans `Fara-Vokatra/<année>/`.
 
 ## Règle de reprise
 
