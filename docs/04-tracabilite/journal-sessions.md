@@ -48,3 +48,17 @@ Les tests synthétiques couvrent le rejet d’un faux onset, l’absence de dét
 ### Limites
 
 Les paramètres par défaut sont des valeurs de démonstration. Ils ne sont pas validés pour Madagascar et ne doivent pas être interprétés comme des seuils agronomiques opérationnels.
+
+## Session 2026-09-17 — Série quotidienne CHIRPS
+
+### Actions réalisées
+
+Le module `src/chirps_series.py` agrège les GeoTIFF nettoyés en table CSV quotidienne. Il calcule la moyenne spatiale des pixels valides, la couverture, les valeurs min/max et vérifie les dates manquantes lorsqu’une période est fournie.
+
+### Validation
+
+Trois tests supplémentaires couvrent le calcul de moyenne, le rejet explicite d’une couverture insuffisante et l’écriture d’une série avec contrôle des dates. La suite complète compte dix tests réussis.
+
+### Limites
+
+La moyenne actuelle porte sur la BBOX découpée. Elle ne constitue pas une moyenne administrative ou une moyenne pondérée par les terres cultivées. Une géométrie de zone d’étude devra être ajoutée avant les analyses régionales.
