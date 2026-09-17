@@ -30,7 +30,7 @@ Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés 
 | DS-011 | Validateur de manifeste | Terminé | Dates, zones, doublons, erreurs, fichiers et checksums contrôlés | `src/manifest_validator.py` |
 | DS-011A | Collecte courte multi-zone valide | Terminé | Manifeste court sans anomalie et rapport qualité archivé | `docs/04-tracabilite/artefacts/ds011a-20240101-20240102/` |
 | DS-011B | Préparer la collecte multi-années | Terminé | Période, volume, stockage Drive, reprise et critères d’arrêt documentés | `config/collecte_multi_annees.json`, `strategie-collecte-multi-annees.md` |
-| DS-011C | Collecter et valider une première année complète | Terminé | 1 825/1 825 couples, rapport qualité v0.2 valide ; archivage Drive en cours | `docs/03-rapport-scientifique/rapport-ds011c-1991.md`, manifeste et rapport qualité |
+| DS-011C | Collecter et valider une première année complète | Terminé | 1 825/1 825 couples, rapport qualité v0.2 valide ; archive ZIP, manifeste, rapport et checksums vérifiés sur Drive | `docs/03-rapport-scientifique/rapport-ds011c-1991.md`, manifeste et rapport qualité |
 | DS-011D | Rapport multi-années de couverture | En cours suivant clôture Drive | Couverture par zone et année sur période retenue | Rapport qualité et tables |
 
 ## Jalon J2 — Série quotidienne et onset
