@@ -28,7 +28,7 @@ Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés 
 | DS-010 | Pipeline CHIRPS idempotent | Terminé | Téléchargement, recadrage, nettoyage, checksum et manifeste | `src/chirps_pipeline.py` |
 | DS-010B | Pilote multi-zone isolé | Terminé | Un brut partagé, une sortie par zone, manifeste global | `src/multi_zone_download.py` |
 | DS-011 | Validateur de manifeste | Terminé | Dates, zones, doublons, erreurs, fichiers et checksums contrôlés | `src/manifest_validator.py` |
-| DS-011A | Collecte courte multi-zone valide | En cours autorisé | Manifeste court sans anomalie et rapport qualité archivé | Données hors Git + rapport JSON |
+| DS-011A | Collecte courte multi-zone valide | Terminé | Manifeste court sans anomalie et rapport qualité archivé | `docs/04-tracabilite/artefacts/ds011a-20240101-20240102/` |
 | DS-011B | Rapport multi-années de couverture | Bloqué | Couverture par zone et année sur période retenue | Rapport qualité et tables |
 
 ## Jalon J2 — Série quotidienne et onset
@@ -67,7 +67,7 @@ Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés 
 
 ## Prochain objectif unique
 
-**DS-011A est la seule tâche autorisée à démarrer maintenant.** Elle doit être clôturée par un manifeste validé, ou marquée bloquée avec la cause, l’impact et la décision de reprise. Toute autre tâche de code est différée pour éviter la dispersion.
+**DS-011A est terminée.** Le prochain objectif unique devient la préparation de DS-011B : choisir une période multi-années et une stratégie de téléchargement/reprise, sans encore lancer une collecte volumineuse non planifiée. Toute analyse d’onset réelle reste bloquée jusqu’à DS-011B.
 
 ## Définition générale de terminé
 

@@ -1,0 +1,23 @@
+{
+  "manifest": "/tmp/fara-vokatra-multizone-test/processed/chirps/manifests/multi_zone_20240101_20240102_rnl_final.json",
+  "valid": true,
+  "expected_records": 10,
+  "observed_records": 10,
+  "zones": [
+    "northwest",
+    "east",
+    "highlands",
+    "west",
+    "south"
+  ],
+  "date_range": {
+    "start": "2024-01-01",
+    "end": "2024-01-02"
+  },
+  "duplicate_records": [],
+  "missing_records": [],
+  "unexpected_records": [],
+  "errors": [],
+  "missing_files": [],
+  "checksum_mismatches": []
+}

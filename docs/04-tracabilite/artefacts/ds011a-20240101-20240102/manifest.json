@@ -1,0 +1,120 @@
+{
+  "dataset": "CHIRPS v3 daily",
+  "configuration_file": "/home/ubuntu/Fara-Vokatra/config/zones_madagascar.json",
+  "configuration": {
+    "start": "2024-01-01",
+    "end": "2024-01-02",
+    "product": "rnl",
+    "stage": "final",
+    "zones": [
+      "northwest",
+      "east",
+      "highlands",
+      "west",
+      "south"
+    ],
+    "source_run": "pilot multi-zone progress observed after controlled job interruption"
+  },
+  "records": [
+    {
+      "date": "2024-01-01",
+      "zone_id": "northwest",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.01.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240101.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/northwest/20240101.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "dd068fc62527df9308846f3f0b3dcecf0a6464150748e308398aca9c92d09fb6",
+      "cleaned_sha256": "2886bb1d91ccd4a2f4e839b1232cb3856980cff70c10ceac2ef71b82bccea5d0"
+    },
+    {
+      "date": "2024-01-01",
+      "zone_id": "east",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.01.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240101.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/east/20240101.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "dd068fc62527df9308846f3f0b3dcecf0a6464150748e308398aca9c92d09fb6",
+      "cleaned_sha256": "b736d4ff468112760145bc6bc0eb2c52cb2eea7be21af8c609820a7910c74481"
+    },
+    {
+      "date": "2024-01-01",
+      "zone_id": "highlands",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.01.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240101.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/highlands/20240101.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "dd068fc62527df9308846f3f0b3dcecf0a6464150748e308398aca9c92d09fb6",
+      "cleaned_sha256": "b26a69d60dffb614a429df1cb13c2af4a45e5b1986e7a2d653b9031217361bc3"
+    },
+    {
+      "date": "2024-01-01",
+      "zone_id": "west",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.01.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240101.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/west/20240101.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "dd068fc62527df9308846f3f0b3dcecf0a6464150748e308398aca9c92d09fb6",
+      "cleaned_sha256": "21fa88265c130a9def68eb90f0ad8d923700f721d4715949ca2241b3bd9bd5ce"
+    },
+    {
+      "date": "2024-01-01",
+      "zone_id": "south",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.01.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240101.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/south/20240101.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "dd068fc62527df9308846f3f0b3dcecf0a6464150748e308398aca9c92d09fb6",
+      "cleaned_sha256": "65a834f037ad1564c65187a511672fb291fbe7956b6048f5b848908ca6fb2b77"
+    },
+    {
+      "date": "2024-01-02",
+      "zone_id": "northwest",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.02.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240102.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/northwest/20240102.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "d5b6f4ceaeb1c3b4c5bece2f1621b84b12acef792aabf410b996eb7ff2a42384",
+      "cleaned_sha256": "0b53a5a72c795501f919a46c2e8cbe96e0567600f90bf58ae13e239a00be3e7c"
+    },
+    {
+      "date": "2024-01-02",
+      "zone_id": "east",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.02.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240102.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/east/20240102.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "d5b6f4ceaeb1c3b4c5bece2f1621b84b12acef792aabf410b996eb7ff2a42384",
+      "cleaned_sha256": "4f20955d0b4ec48b439d9abdcfb399f0e0aeac255bab71f9b16b07f3c776abb0"
+    },
+    {
+      "date": "2024-01-02",
+      "zone_id": "highlands",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.02.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240102.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/highlands/20240102.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "d5b6f4ceaeb1c3b4c5bece2f1621b84b12acef792aabf410b996eb7ff2a42384",
+      "cleaned_sha256": "7c1f3e94b59c8bff4464bdf33824ad37a326e849ee2b19959f7936632249d5ed"
+    },
+    {
+      "date": "2024-01-02",
+      "zone_id": "west",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.02.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240102.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/west/20240102.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "d5b6f4ceaeb1c3b4c5bece2f1621b84b12acef792aabf410b996eb7ff2a42384",
+      "cleaned_sha256": "5456d8e1cdb36d624670cb48fe722bd65eda60738dba7717932b32fdf029389e"
+    },
+    {
+      "date": "2024-01-02",
+      "zone_id": "south",
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final/rnl/2024/chirps-v3.0.rnl.2024.01.02.tif",
+      "raw_path": "/tmp/fara-vokatra-multizone-test/raw/chirps/final/rnl/20240102.tif",
+      "cleaned_path": "/tmp/fara-vokatra-multizone-test/processed/chirps/final/rnl/south/20240102.tif",
+      "downloaded_this_run": false,
+      "raw_sha256": "d5b6f4ceaeb1c3b4c5bece2f1621b84b12acef792aabf410b996eb7ff2a42384",
+      "cleaned_sha256": "47338055a0f26b41c58247c3d76bde0688fdaf480b4452ff312b954ca68a1cfc"
+    }
+  ]
+}

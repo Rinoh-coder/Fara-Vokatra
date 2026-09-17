@@ -130,3 +130,17 @@ Une feuille de route versionnée décrit les modules A à F, les jalons J0 à J6
 ### Décision de périmètre
 
 La seule tâche autorisée au prochain cycle est DS-011A : obtenir un manifeste multi-zone court et valide. Les séries multi-années, le backtesting, les rendements et l’optimisation restent bloqués jusqu’à la preuve de qualité des données.
+
+## Session 2026-09-17 — Clôture DS-011A
+
+### Résultat
+
+Les artefacts déjà disponibles ont été examinés. Les journées du 1er et du 2 janvier 2024 sont complètes pour les cinq zones. Le 3 janvier reste un fichier `.part` vide et a été exclu. Un manifeste de dix couples date/zone a été construit, puis contrôlé avec vérification des fichiers et des checksums.
+
+### Validation
+
+Le rapport qualité indique `valid=true`, 10 enregistrements attendus, 10 observés, aucun doublon, aucune date manquante, aucune erreur, aucun fichier manquant et aucun checksum divergent. Le manifeste et le rapport qualité sont archivés dans `docs/04-tracabilite/artefacts/ds011a-20240101-20240102/`. Le rapport scientifique lisible se trouve dans `docs/03-rapport-scientifique/rapport-ds011a.md`.
+
+### Décision
+
+DS-011A est terminée. DS-011B devient le prochain objectif : préparer une collecte multi-années avant son exécution. Les deux jours validés ne doivent pas être utilisés pour calculer une climatologie ou un onset.
