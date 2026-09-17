@@ -97,7 +97,7 @@ def download(url: str, destination: Path, timeout: int) -> bool:
             last_error = exc
             temporary.unlink(missing_ok=True)
             if attempt == 3 or time.monotonic() - started > timeout:
-                raise
+                break
             LOG.warning("Échec téléchargement tentative %d/3 (%s); nouvelle tentative", attempt, exc)
             sleep(2 ** (attempt - 1))
     if last_error is not None:
