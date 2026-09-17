@@ -9,8 +9,10 @@ import argparse
 import hashlib
 import json
 import logging
+import subprocess
 import sys
 import time
+from time import sleep
 from dataclasses import asdict, dataclass
 from datetime import date, timedelta
 from pathlib import Path
@@ -73,20 +75,46 @@ def download(url: str, destination: Path, timeout: int) -> bool:
     temporary = destination.with_suffix(destination.suffix + ".part")
     LOG.info("Téléchargement : %s", url)
     started = time.monotonic()
-    try:
-        with requests.get(url, stream=True, timeout=(10, min(timeout, 30))) as response:
-            if response.status_code == 404:
-                raise FileNotFoundError(f"Fichier CHIRPS introuvable (404): {url}")
-            response.raise_for_status()
-            with temporary.open("wb") as handle:
-                for chunk in response.iter_content(chunk_size=1024 * 1024):
-                    if chunk:
-                        if time.monotonic() - started > timeout:
-                            raise TimeoutError(f"Téléchargement dépassant {timeout}s: {url}")
-                        handle.write(chunk)
-    except Exception:
-        temporary.unlink(missing_ok=True)
-        raise
+    last_error = None
+    for attempt in range(1, 4):
+        try:
+            with requests.get(url, stream=True, timeout=(10, min(timeout, 30))) as response:
+                if response.status_code == 404:
+                    raise FileNotFoundError(f"Fichier CHIRPS introuvable (404): {url}")
+                response.raise_for_status()
+                with temporary.open("wb") as handle:
+                    for chunk in response.iter_content(chunk_size=1024 * 1024):
+                        if chunk:
+                            if time.monotonic() - started > timeout:
+                                raise TimeoutError(f"Téléchargement dépassant {timeout}s: {url}")
+                            handle.write(chunk)
+            last_error = None
+            break
+        except FileNotFoundError:
+            temporary.unlink(missing_ok=True)
+            raise
+        except Exception as exc:
+            last_error = exc
+            temporary.unlink(missing_ok=True)
+            if attempt == 3 or time.monotonic() - started > timeout:
+                raise
+            LOG.warning("Échec téléchargement tentative %d/3 (%s); nouvelle tentative", attempt, exc)
+            sleep(2 ** (attempt - 1))
+    if last_error is not None:
+        LOG.warning("Pile TLS Python indisponible après retries ; essai curl vérifié TLS")
+        try:
+            subprocess.run(
+                ["curl", "--fail", "--location", "--silent", "--show-error",
+                 "--retry", "3", "--retry-all-errors", "--connect-timeout", "10",
+                 "--max-time", str(timeout), "--output", str(temporary), url],
+                check=True,
+                timeout=timeout + 15,
+            )
+            if not temporary.exists() or temporary.stat().st_size == 0:
+                raise OSError("curl a produit un fichier vide")
+        except Exception:
+            temporary.unlink(missing_ok=True)
+            raise last_error
     temporary.replace(destination)
     return True
 

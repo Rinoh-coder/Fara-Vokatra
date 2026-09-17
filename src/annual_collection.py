@@ -49,6 +49,7 @@ def run_year(zones_path: Path, year: int, data_root: Path, product: str = "rnl",
     if manifest_path.exists():
         payload = json.loads(manifest_path.read_text(encoding="utf-8"))
     records = {(r.get("date"), r.get("zone_id")): r for r in payload.get("records", []) if "error" not in r}
+    previous_errors = {r.get("date"): r for r in payload.get("records", []) if "error" in r}
     for day in dates_for_year(year):
         iso = day.isoformat()
         if all((iso, zone["id"]) in records for zone in zones):
@@ -67,7 +68,8 @@ def run_year(zones_path: Path, year: int, data_root: Path, product: str = "rnl",
             for record in day_records:
                 records[(record["date"], record["zone_id"])] = record
             raw.unlink(missing_ok=True)
-            payload["records"] = sorted(records.values(), key=lambda r: (r["date"], r["zone_id"]))
+            previous_errors.pop(iso, None)
+            payload["records"] = sorted([*records.values(), *previous_errors.values()], key=lambda r: (r["date"], r.get("zone_id", "")))
             _write_json(manifest_path, payload)
             LOG.info("%s terminé (%d/%d jours)", iso, len({r["date"] for r in records.values()}), len(dates_for_year(year)))
         except Exception as exc:
