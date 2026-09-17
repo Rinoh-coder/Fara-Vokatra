@@ -102,3 +102,17 @@ Un orchestrateur multi-zone a été ajouté. Il partage un raster brut par date 
 Le premier jour a été téléchargé et découpé correctement pour les cinq zones. Le téléchargement du deuxième raster est resté bloqué avec un fichier partiel ; le job a été arrêté proprement afin de ne pas prolonger une collecte non nécessaire. Les fichiers partiels ont été supprimés. Ce résultat valide le chemin d’exécution du premier jour, mais ne constitue pas une validation multi-jours.
 
 La fonction de téléchargement supprime désormais les fichiers `.part` lorsqu’une exception survient. La suite de tests compte seize tests réussis.
+
+## Session 2026-09-17 — Validation des manifestes
+
+### Actions réalisées
+
+Le module `src/manifest_validator.py` vérifie la complétude des couples date/zone, les doublons, les dates inattendues, les erreurs du manifeste, l’existence des fichiers et les checksums SHA-256. Il produit un rapport JSON exploitable avant l’analyse scientifique.
+
+### Validation
+
+Les tests couvrent un manifeste valide, les enregistrements manquants et dupliqués, un checksum incorrect et l’écriture du rapport. La suite complète compte vingt tests réussis.
+
+### Décision
+
+Un manifeste invalide doit être conservé comme trace de qualité, mais ne doit pas alimenter les dates d’onset. Les anomalies ne sont pas imputées silencieusement.

@@ -49,3 +49,5 @@ Une tâche est terminée si elle possède un résultat vérifiable, une document
 DS-010 est implémentée pour CHIRPS v3 quotidien : téléchargement idempotent, découpage BBOX, nettoyage des valeurs invalides, SHA-256 et manifeste JSON. DS-011 est partiellement couverte par les contrôles de valeurs négatives, non finies et nodata ; l’agrégation quotidienne, le contrôle de couverture et l’analyse annuelle leave-one-year-out sont maintenant disponibles, mais le rapport géographique multi-années reste à produire.
 
 Le pilote multi-zone est implémenté et testé. Un essai réel d’un jour a réussi pour les cinq zones ; l’essai de trois jours a été interrompu pendant le téléchargement du deuxième raster après détection d’un blocage réseau prolongé. Aucune conclusion scientifique multi-jours n’est tirée de cet essai.
+
+Le contrôle qualité des manifestes est maintenant implémenté : complétude date/zone, doublons, erreurs, existence des fichiers et checksums SHA-256. L’analyse multi-années reste bloquée jusqu’à l’obtention d’un manifeste valide sur la période retenue.
