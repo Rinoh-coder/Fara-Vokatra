@@ -34,3 +34,17 @@ Trois tests unitaires passent. Un téléchargement CHIRPS réel sur une journée
 ### Points ouverts
 
 La BBOX doit être remplacée par une géométrie officielle de la zone d’étude lorsque celle-ci sera définie. La couverture, les biais par région et la comparaison à des stations restent à évaluer.
+
+## Session 2026-09-17 — Baselines d’onset
+
+### Actions réalisées
+
+Deux méthodes paramétrables ont été ajoutées dans `src/onset.py` : une règle à seuils avec contrôle prospectif des séquences sèches et une méthode d’anomalies cumulées. La documentation se trouve dans `docs/01-specifications/baseline-onset.md`.
+
+### Validation
+
+Les tests synthétiques couvrent le rejet d’un faux onset, l’absence de détection sans fenêtre valide, le minimum d’anomalie cumulée, les erreurs de date et les entrées invalides. La suite complète compte maintenant sept tests réussis.
+
+### Limites
+
+Les paramètres par défaut sont des valeurs de démonstration. Ils ne sont pas validés pour Madagascar et ne doivent pas être interprétés comme des seuils agronomiques opérationnels.

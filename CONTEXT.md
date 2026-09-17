@@ -14,7 +14,7 @@ Le projet doit démontrer des compétences de data science par une démarche rep
 
 Le dépôt GitHub était vide à l’initialisation. Le cahier des charges est conservé dans `docs/00-cadrage/brief-initial.md`. La structure documentaire, le cadrage scientifique, le MVP, le backlog et six rapports de recherche ont été ajoutés. Le pipeline initial de téléchargement et nettoyage CHIRPS v3 est implémenté sur la branche `feat/chirps-download-cleaning`.
 
-La recherche recommande de commencer par **CHIRPS** pour la pluie, complété par **ERA5-Land** ou NASA POWER pour les variables météorologiques. CHIRPS est pertinent pour l’onset mais la transition v2–v3 doit être contrôlée avant une série longue. Pour les rendements, FAOSTAT/HDX et HarvestStat-Africa sont des pistes initiales, mais la couverture et les définitions régionales doivent être auditées. La méthode d’onset doit comparer une règle agronomique à seuils et une méthode d’anomalies cumulées de type Liebmann. La validation doit être chronologique, par rolling origin ou `TimeSeriesSplit`.
+La recherche recommande de commencer par **CHIRPS** pour la pluie, complété par **ERA5-Land** ou NASA POWER pour les variables météorologiques. CHIRPS est pertinent pour l’onset mais la transition v2–v3 doit être contrôlée avant une série longue. Pour les rendements, FAOSTAT/HDX et HarvestStat-Africa sont des pistes initiales, mais la couverture et les définitions régionales doivent être auditées. Deux baselines d’onset sont maintenant implémentées dans `src/onset.py` : règle à seuils avec rejet de faux onset et anomalies cumulées de type Liebmann. La validation doit être chronologique, par rolling origin ou `TimeSeriesSplit`.
 
 ## Périmètre fonctionnel initial
 
@@ -38,7 +38,7 @@ Les rapports thématiques se trouvent dans `docs/05-recherche/`. Les sources pri
 
 1. Remplacer la BBOX technique par la géométrie officielle de la zone d’étude.
 2. Télécharger un petit échantillon CHIRPS sur plusieurs zones contrastées, sans commiter les fichiers bruts.
-3. Implémenter et tester deux définitions d’onset sur des données synthétiques avant les données réelles.
+3. Relier les deux baselines d’onset à une série CHIRPS multi-années.
 4. Écrire le protocole de backtesting et figer les périodes d’entraînement et de test.
 5. Vérifier la couverture régionale et les unités des rendements FAOSTAT/HDX ou HarvestStat-Africa.
 6. Demander une revue agronomique locale avant toute interprétation opérationnelle.
