@@ -7,6 +7,7 @@ Ce registre complète le backlog. Il conserve la décision de démarrage, la pre
 | DS-011A | 2026-09-17 | Agent du projet | Pilote multi-zone, validateur | Manifeste court valide et rapport qualité | Terminé le 2026-09-17 | Préparer l’ouverture de DS-011B sans lancer de collecte non planifiée |
 | DS-011B | Après DS-011A | Agent du projet | DS-011A, stockage stable | Couverture multi-années par zone | Terminé le 2026-09-17 — préparation | Période, volume, reprise et archive Drive documentés |
 | DS-011C | Après DS-011B | Agent du projet | Configuration, quota Drive, pilote | Année 1991 complète et validée | Prochain objectif unique | Exécuter une seule année et archiver ses artefacts |
+| DS-011C-SUPPORT | Pendant DS-011C | Agent du projet | Manifeste annuel, quota Drive | Rapport qualité, reprise testée, script Drive et protocole séries | Terminé le 2026-09-17 | Utiliser ces outils uniquement après validation de 1991 |
 | DS-014A | Après DS-011D | Agent du projet | Séries quotidiennes complètes | Onsets par zone et année | Bloqué | Attendre la qualité des données |
 | DS-020 | Après DS-014A | Agent du projet | Onsets réels et référence | Protocole de backtesting | Bloqué | Définir les observations cibles |
 | DS-030 | Après audit J2 | Agent du projet | Sources de rendement | Rapport de couverture et unités | Différé | Ne pas ouvrir avant le jalon onset |

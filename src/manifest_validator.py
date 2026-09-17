@@ -59,6 +59,8 @@ def validate_manifest(path: Path, check_files: bool = True) -> dict:
                 if not raw_path:
                     missing_files.append({"key": [record.get("date"), record.get("zone_id")], "path": raw_path})
                     continue
+                if field == "raw_path" and record.get("raw_deleted_after_validation") is True:
+                    continue
                 target = Path(raw_path)
                 if not target.exists():
                     missing_files.append({"key": [record.get("date"), record.get("zone_id")], "path": raw_path})

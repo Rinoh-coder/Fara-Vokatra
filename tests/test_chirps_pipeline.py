@@ -73,3 +73,34 @@ def test_download_removes_partial_file_on_failure(tmp_path: Path, monkeypatch):
         raise AssertionError("Le téléchargement aurait dû échouer")
     assert not destination.exists()
     assert not destination.with_suffix(".tif.part").exists()
+
+
+def test_download_removes_partial_file_on_total_timeout(tmp_path: Path, monkeypatch):
+    destination = tmp_path / "nested" / "timeout.tif"
+
+    class SlowResponse:
+        status_code = 200
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def raise_for_status(self):
+            return None
+
+        def iter_content(self, chunk_size):
+            yield b"partial"
+
+    monkeypatch.setattr("src.chirps_pipeline.requests.get", lambda *args, **kwargs: SlowResponse())
+    ticks = iter([0.0, 2.0])
+    monkeypatch.setattr("src.chirps_pipeline.time.monotonic", lambda: next(ticks))
+    try:
+        download("https://example.test/slow.tif", destination, timeout=1)
+    except TimeoutError as exc:
+        assert "dépassant" in str(exc)
+    else:
+        raise AssertionError("Le téléchargement aurait dû dépasser le délai total")
+    assert not destination.exists()
+    assert not destination.with_suffix(".tif.part").exists()

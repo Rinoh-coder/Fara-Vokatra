@@ -158,3 +158,9 @@ Le quota Drive a été consulté en lecture seule : limite de 15 GiB, usage tota
 ### Validation de préparation
 
 La configuration `config/collecte_multi_annees.json`, la stratégie de collecte et le registre de stockage ont été ajoutés. La collecte complète n’est pas lancée dans cette session. DS-011B est considérée comme préparée ; DS-011C devient le prochain objectif : une seule année complète, 1991, suivie d’un rapport qualité avant accélération.
+
+## Session 2026-09-17 — Outils parallèles pendant DS-011C
+
+La collecte 1991 est restée la seule tâche réseau active. En parallèle, quatre éléments indépendants ont été préparés : `src/annual_quality.py` produit un rapport annuel complet avec couverture et complétude ; des tests vérifient le timeout total et la suppression des fichiers partiels ; `scripts/archive_year_to_drive.sh` prépare l’archivage par année après validation ; `docs/01-specifications/protocole-series-historiques.md` fixe le contrat des séries quotidiennes.
+
+Les nouveaux contrôles passent avec 24 tests. Aucun upload Drive ni calcul scientifique d’onset n’a été lancé avant la validation de l’année 1991.

@@ -14,6 +14,8 @@ Les rapports de ressources ouvertes sont dans [`05-recherche`](05-recherche/). L
 
 La préparation de la collecte historique est documentée dans la [`stratégie multi-années`](02-planification/strategie-collecte-multi-annees.md) et sa configuration versionnée dans [`config/collecte_multi_annees.json`](../config/collecte_multi_annees.json).
 
+Le contrat de production des séries quotidiennes est dans [`protocole-series-historiques.md`](01-specifications/protocole-series-historiques.md). Le rapport qualité annuel automatisé est produit par `src/annual_quality.py`, et l’archivage est préparé par `scripts/archive_year_to_drive.sh` après validation du manifeste.
+
 ## Règle de qualité
 
 Une affirmation empirique doit être accompagnée d’une source ou d’un artefact reproductible. Une recommandation doit indiquer son incertitude et ses limites. Une métrique doit être associée à son protocole de validation.
