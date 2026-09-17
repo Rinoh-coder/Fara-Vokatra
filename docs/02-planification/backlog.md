@@ -30,8 +30,8 @@ Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés 
 | DS-011 | Validateur de manifeste | Terminé | Dates, zones, doublons, erreurs, fichiers et checksums contrôlés | `src/manifest_validator.py` |
 | DS-011A | Collecte courte multi-zone valide | Terminé | Manifeste court sans anomalie et rapport qualité archivé | `docs/04-tracabilite/artefacts/ds011a-20240101-20240102/` |
 | DS-011B | Préparer la collecte multi-années | Terminé | Période, volume, stockage Drive, reprise et critères d’arrêt documentés | `config/collecte_multi_annees.json`, `strategie-collecte-multi-annees.md` |
-| DS-011C | Collecter et valider une première année complète | À faire | Année 1991 validée avant toute accélération | Manifeste, rapport qualité et archive Drive |
-| DS-011D | Rapport multi-années de couverture | Bloqué | Couverture par zone et année sur période retenue | Rapport qualité et tables |
+| DS-011C | Collecter et valider une première année complète | Terminé | 1 825/1 825 couples, rapport qualité v0.2 valide ; archivage Drive en cours | `docs/03-rapport-scientifique/rapport-ds011c-1991.md`, manifeste et rapport qualité |
+| DS-011D | Rapport multi-années de couverture | En cours suivant clôture Drive | Couverture par zone et année sur période retenue | Rapport qualité et tables |
 
 ## Jalon J2 — Série quotidienne et onset
 
@@ -69,7 +69,7 @@ Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés 
 
 ## Prochain objectif unique
 
-**DS-011A est terminée et la préparation DS-011B est terminée.** Le prochain objectif unique devient DS-011C : collecter et valider l’année 1991 comme test complet avant toute accélération. Toute analyse d’onset réelle reste bloquée jusqu’à DS-011D.
+**DS-011C est terminée sur le plan scientifique** : l’année 1991 est complète et son rapport qualité v0.2 est valide. Le prochain objectif unique devient DS-011D : établir la couverture multi-années avant toute analyse d’onset réelle ou accélération. L’archivage Drive est une opération de clôture technique du jalon.
 
 ## Définition générale de terminé
 

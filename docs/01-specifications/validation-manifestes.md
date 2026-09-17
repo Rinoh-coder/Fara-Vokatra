@@ -16,18 +16,20 @@ Le module `src/manifest_validator.py` vérifie :
 - l’existence des fichiers bruts et nettoyés ;
 - les checksums SHA-256 des fichiers présents.
 
+Le module `src/annual_quality.py` ajoute le contrôle de couverture spatiale. Les BBOX de Madagascar peuvent inclure l’océan : comparer les pixels valides à tous les pixels de la BBOX confondrait donc « pixel hors terre » et « donnée manquante ». Depuis la version 0.2, une empreinte stable est construite par zone avec les pixels valides au moins 95 % des jours disponibles. La couverture quotidienne est calculée uniquement à l’intérieur de cette empreinte et la fraction terrestre de la BBOX est conservée dans `stable_land_footprint`.
+
 La sortie est un rapport JSON contenant `valid`, les anomalies et les dimensions attendues. Le statut `valid=true` est un contrôle de cohérence du pipeline, pas une preuve que CHIRPS est sans biais ni que l’onset est agronomiquement exact.
 
 ## Commande
 
 ```bash
-python3 src/manifest_validator.py \
-  --manifest data/processed/chirps/manifests/multi_zone_20240101_20240103_rnl_final.json \
-  --output reports/quality/multi_zone_quality.json
+python3 -m src.annual_quality \
+  --manifest data/processed/chirps/manifests/year_1991_rnl_final.json \
+  --output reports/quality/year_1991_quality.json
 ```
 
-Le code retour vaut `0` si le manifeste est cohérent, `2` si des anomalies sont détectées et `1` si le rapport ne peut pas être construit. `--skip-file-check` permet de vérifier uniquement la structure d’un manifeste déplacé sans ses fichiers, mais ce mode ne doit pas être utilisé pour déclarer un jeu de données prêt à l’analyse.
+Le code retour vaut `0` si le manifeste et la couverture terrestre sont cohérents, `2` si des anomalies sont détectées et `1` si le rapport ne peut pas être construit. Le contrôle structurel peut être effectué séparément avec `src/manifest_validator.py`.
 
 ## Règle scientifique
 
-Aucune série multi-zone ne doit alimenter l’analyse d’onset tant que son manifeste n’a pas été contrôlé et archivé avec le rapport de qualité. Un manifeste invalide devient une information de traçabilité, jamais une raison d’imputer silencieusement les données manquantes.
+Aucune série multi-zone ne doit alimenter l’analyse d’onset tant que son manifeste n’a pas été contrôlé et archivé avec le rapport de qualité. Un manifeste invalide devient une information de traçabilité, jamais une raison d’imputer silencieusement les données manquantes. Une année complète ne constitue pas une validation de l’exactitude de CHIRPS ; une comparaison avec des stations indépendantes reste nécessaire.

@@ -164,3 +164,11 @@ La configuration `config/collecte_multi_annees.json`, la stratégie de collecte 
 La collecte 1991 est restée la seule tâche réseau active. En parallèle, quatre éléments indépendants ont été préparés : `src/annual_quality.py` produit un rapport annuel complet avec couverture et complétude ; des tests vérifient le timeout total et la suppression des fichiers partiels ; `scripts/archive_year_to_drive.sh` prépare l’archivage par année après validation ; `docs/01-specifications/protocole-series-historiques.md` fixe le contrat des séries quotidiennes.
 
 Les nouveaux contrôles passent avec 24 tests. Aucun upload Drive ni calcul scientifique d’onset n’a été lancé avant la validation de l’année 1991.
+
+## Session 2026-09-17 — Clôture scientifique DS-011C
+
+L’année 1991 a été collectée avec succès : 365 jours, cinq zones et 1 825 couples date-zone. Le manifeste ne contient aucune date manquante, aucun doublon, aucun fichier absent et aucun checksum divergent. Les données brutes ont été supprimées après découpage et validation ; 1 825 rasters nettoyés restent disponibles.
+
+Le premier rapport de couverture indiquait artificiellement 1 460 observations sous 0,95 parce qu’il comparait les pixels valides à tous les pixels des BBOX, y compris l’océan. Une correction méthodologique a été appliquée : `src/annual_quality.py` v0.2 construit une empreinte terrestre stable par zone, définie par une validité d’au moins 95 % des jours, puis évalue la couverture dans cette empreinte. La couverture minimale devient 1,0 pour les cinq zones et le rapport final est `valid=true`. La fraction terrestre des BBOX est conservée pour éviter les comparaisons spatiales trompeuses.
+
+Le rapport lisible est `docs/03-rapport-scientifique/rapport-ds011c-1991.md`. L’archivage Drive est lancé avec le manifeste, le rapport qualité et les rasters nettoyés ; il doit être vérifié séparément avant clôture technique. DS-011D devient le prochain objectif unique : mesurer la couverture multi-années.

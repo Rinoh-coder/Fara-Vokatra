@@ -4,7 +4,7 @@
 
 **Date de référence :** 2026-09-17
 
-**Statut :** pilotage actif, MVP d’onset en cours
+**Statut :** pilotage actif, acquisition annuelle validée, couverture multi-années suivante
 
 ## 1. Règle de pilotage
 
@@ -27,7 +27,7 @@ Le module A reste prioritaire. Les modules B et C ne doivent pas être implémen
 
 ## 3. État vérifié au 2026-09-17
 
-Le dépôt contient un pipeline CHIRPS v3 quotidien, deux baselines d’onset, une agrégation quotidienne, une analyse annuelle avec climatologie leave-one-year-out, un pilote multi-zone et un validateur de manifestes. Vingt tests passent. Un essai réel a produit les cinq sorties de la première journée, puis a été interrompu pendant le téléchargement du deuxième raster ; aucune série multi-jours valide n’est encore disponible.
+Le dépôt contient un pipeline CHIRPS v3 quotidien, deux baselines d’onset, une agrégation quotidienne, une analyse annuelle avec climatologie leave-one-year-out, un pilote multi-zone et un validateur de manifestes. Vingt-cinq tests passent. L’année 1991 est complète pour les cinq zones ; son rapport qualité v0.2 valide 1 825/1 825 couples et distingue l’empreinte terrestre des pixels océaniques.
 
 Cette distinction est essentielle : **le code est partiellement validé, mais les résultats scientifiques multi-zone ne sont pas encore produits**.
 
@@ -45,9 +45,9 @@ Les artefacts sont `CONTEXT.md`, cette feuille de route, `docs/02-planification/
 
 **Objectif :** obtenir un petit ensemble multi-zone réellement complet avant toute analyse.
 
-**État :** préparation terminée ; collecte annuelle contrôlée à démarrer.
+**État :** collecte annuelle contrôlée terminée ; rapport multi-années à produire.
 
-DS-011A est terminée : un échantillon de deux jours et cinq zones possède un manifeste valide et un rapport qualité archivé. DS-011B est maintenant préparée : la période 1991–2024 est définie, 1991–2020 sert de référence et 2021–2024 d’évaluation, le stockage Drive est structuré par année et les bruts globaux sont temporaires. La prochaine tâche unique est DS-011C : collecter et valider l’année 1991 avant toute accélération.
+DS-011A est terminée : un échantillon de deux jours et cinq zones possède un manifeste valide et un rapport qualité archivé. DS-011B est terminée : la période 1991–2024 est définie, 1991–2020 sert de référence et 2021–2024 d’évaluation, le stockage Drive est structuré par année et les bruts globaux sont temporaires. DS-011C est terminée : l’année 1991 possède 365 jours, cinq zones, aucun doublon, aucune date manquante et un rapport qualité v0.2 valide. La prochaine tâche unique est DS-011D : mesurer la couverture multi-années.
 
 **Critères de sortie :** toutes les dates et zones attendues sont présentes ; aucun checksum ne diverge ; aucune erreur n’est enregistrée ; les chemins sont archivés ; le rapport JSON est lisible ; la période et la version CHIRPS sont documentées.
 
