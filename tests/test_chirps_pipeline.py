@@ -5,7 +5,7 @@ import numpy as np
 import rasterio
 from rasterio.transform import from_origin
 
-from src.chirps_pipeline import crop_and_clean, date_range, url_for
+from src.chirps_pipeline import crop_and_clean, date_range, download, url_for
 
 
 def test_date_range_is_inclusive():
@@ -43,3 +43,33 @@ def test_crop_and_clean_replaces_invalid_values(tmp_path: Path):
         assert cleaned[1, 1] == 4
     assert stats["valid_pixels"] == 2
     assert stats["nodata_pixels"] == 2
+
+
+def test_download_removes_partial_file_on_failure(tmp_path: Path, monkeypatch):
+    destination = tmp_path / "nested" / "file.tif"
+
+    class BrokenResponse:
+        status_code = 200
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def raise_for_status(self):
+            return None
+
+        def iter_content(self, chunk_size):
+            yield b"partial"
+            raise OSError("simulated connection failure")
+
+    monkeypatch.setattr("src.chirps_pipeline.requests.get", lambda *args, **kwargs: BrokenResponse())
+    try:
+        download("https://example.test/file.tif", destination, timeout=1)
+    except OSError as exc:
+        assert "simulated" in str(exc)
+    else:
+        raise AssertionError("Le téléchargement aurait dû échouer")
+    assert not destination.exists()
+    assert not destination.with_suffix(".tif.part").exists()

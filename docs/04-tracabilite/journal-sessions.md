@@ -90,3 +90,15 @@ Le protocole impose les mêmes produit, période, seuil de couverture et paramè
 ### Limites
 
 Les boîtes ne sont ni des frontières administratives ni des zones agricoles. Leur pertinence devra être contrôlée avec des données géographiques, des calendriers locaux et, si possible, des observations de stations.
+
+## Session 2026-09-17 — Pilote multi-zone contrôlé
+
+### Actions réalisées
+
+Un orchestrateur multi-zone a été ajouté. Il partage un raster brut par date et écrit une sortie indépendante pour chaque zone, avec un manifeste global. Le premier essai réel sur trois jours a été lancé avec les cinq boîtes.
+
+### Résultat et décision
+
+Le premier jour a été téléchargé et découpé correctement pour les cinq zones. Le téléchargement du deuxième raster est resté bloqué avec un fichier partiel ; le job a été arrêté proprement afin de ne pas prolonger une collecte non nécessaire. Les fichiers partiels ont été supprimés. Ce résultat valide le chemin d’exécution du premier jour, mais ne constitue pas une validation multi-jours.
+
+La fonction de téléchargement supprime désormais les fichiers `.part` lorsqu’une exception survient. La suite de tests compte seize tests réussis.

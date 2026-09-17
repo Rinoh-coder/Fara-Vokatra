@@ -71,14 +71,18 @@ def download(url: str, destination: Path, timeout: int) -> bool:
         return False
     temporary = destination.with_suffix(destination.suffix + ".part")
     LOG.info("Téléchargement : %s", url)
-    with requests.get(url, stream=True, timeout=timeout) as response:
-        if response.status_code == 404:
-            raise FileNotFoundError(f"Fichier CHIRPS introuvable (404): {url}")
-        response.raise_for_status()
-        with temporary.open("wb") as handle:
-            for chunk in response.iter_content(chunk_size=1024 * 1024):
-                if chunk:
-                    handle.write(chunk)
+    try:
+        with requests.get(url, stream=True, timeout=timeout) as response:
+            if response.status_code == 404:
+                raise FileNotFoundError(f"Fichier CHIRPS introuvable (404): {url}")
+            response.raise_for_status()
+            with temporary.open("wb") as handle:
+                for chunk in response.iter_content(chunk_size=1024 * 1024):
+                    if chunk:
+                        handle.write(chunk)
+    except Exception:
+        temporary.unlink(missing_ok=True)
+        raise
     temporary.replace(destination)
     return True
 
