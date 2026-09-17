@@ -42,4 +42,8 @@ Le backlog est organisé par preuves à obtenir, et non par fonctionnalités iso
 
 ## Définition générale de terminé
 
-Une tâche est terminée si elle possède un résultat vérifiable, une documentation suffisante pour être reprise, des tests ou contrôles adaptés et une entrée dans le journal de décisions lorsque son choix modifie la méthode.
+Une tâche est terminée si elle possède un résultat vérifiable, une documentation suffisante pour être reprise, des tests ou contrôles adaptés et une entrée dans le journal des décisions lorsque son choix modifie la méthode.
+
+## État au 2026-09-17
+
+DS-010 est implémentée pour CHIRPS v3 quotidien : téléchargement idempotent, découpage BBOX, nettoyage des valeurs invalides, SHA-256 et manifeste JSON. DS-011 est partiellement couverte par les contrôles de valeurs négatives, non finies et nodata ; le rapport complet de couverture reste à produire.
