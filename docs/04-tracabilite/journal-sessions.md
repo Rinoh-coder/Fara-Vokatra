@@ -116,3 +116,17 @@ Les tests couvrent un manifeste valide, les enregistrements manquants et dupliqu
 ### Décision
 
 Un manifeste invalide doit être conservé comme trace de qualité, mais ne doit pas alimenter les dates d’onset. Les anomalies ne sont pas imputées silencieusement.
+
+## Session 2026-09-17 — Consolidation du pilotage
+
+### Audit effectué
+
+L’état Git était propre et les modules présents correspondaient au périmètre du MVP : téléchargement CHIRPS, agrégation, onset, analyse annuelle, pilote multi-zone et validation des manifestes. Le principal écart concernait la planification : le backlog listait les tâches, mais ne rendait pas assez explicites les dépendances, les blocages, les modules différés et le prochain objectif unique.
+
+### Actions réalisées
+
+Une feuille de route versionnée décrit les modules A à F, les jalons J0 à J6, les risques, les critères de sortie et les règles de clôture. Le backlog a été réécrit comme tableau de pilotage. Un registre des tâches conserve les dépendances et les conditions de reprise. L’index documentaire, le contexte et le journal des décisions ont été synchronisés.
+
+### Décision de périmètre
+
+La seule tâche autorisée au prochain cycle est DS-011A : obtenir un manifeste multi-zone court et valide. Les séries multi-années, le backtesting, les rendements et l’optimisation restent bloqués jusqu’à la preuve de qualité des données.

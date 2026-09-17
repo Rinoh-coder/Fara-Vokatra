@@ -2,7 +2,7 @@
 
 ## Reprendre le projet
 
-Commencer par [`../CONTEXT.md`](../CONTEXT.md), puis lire le [`cadrage scientifique`](00-cadrage/cadrage-scientifique.md), la [`spécification du MVP`](01-specifications/specification-mvp.md) et le [`backlog`](02-planification/backlog.md).
+Commencer par [`../CONTEXT.md`](../CONTEXT.md), puis lire la [`feuille de route`](02-planification/feuille-de-route.md), le [`registre des tâches`](02-planification/registre-taches.md), le [`cadrage scientifique`](00-cadrage/cadrage-scientifique.md), la [`spécification du MVP`](01-specifications/specification-mvp.md) et le [`backlog`](02-planification/backlog.md). Une seule tâche du prochain jalon doit être active à la fois.
 
 ## Comprendre le projet
 
@@ -10,7 +10,7 @@ Le [`brief initial`](00-cadrage/brief-initial.md) décrit la vision fonctionnell
 
 ## Rechercher et décider
 
-Les rapports de ressources ouvertes sont dans [`05-recherche`](05-recherche/). Les décisions et sessions sont conservées dans [`04-tracabilite`](04-tracabilite/), avec le [`registre des données`](04-tracabilite/registre-donnees.md) et le [`modèle de fiche d’expérience`](04-tracabilite/fiche-experience.md).
+Les rapports de ressources ouvertes sont dans [`05-recherche`](05-recherche/). Les décisions et sessions sont conservées dans [`04-tracabilite`](04-tracabilite/), avec le [`registre des données`](04-tracabilite/registre-donnees.md) et le [`modèle de fiche d’expérience`](04-tracabilite/fiche-experience.md). La feuille de route décrit les modules, jalons, dépendances, risques et critères de sortie ; le registre des tâches conserve les blocages et les conditions de reprise.
 
 ## Règle de qualité
 

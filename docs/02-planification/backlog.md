@@ -1,53 +1,74 @@
-# Backlog initial
+# Backlog de pilotage scientifique — Fara-Vokatra
 
-## Méthode
+**Dernière mise à jour :** 2026-09-17
 
-Le backlog est organisé par preuves à obtenir, et non par fonctionnalités isolées. Une tâche n’est terminée que lorsque son artefact, son test ou sa décision est traçable dans Git.
+Le backlog est organisé par preuves à obtenir. Les statuts sont synchronisés avec [`feuille-de-route.md`](feuille-de-route.md), `CONTEXT.md` et le journal des sessions.
 
-## Jalon 0 — Cadrage et reproductibilité
+## Statuts
 
-| ID | Tâche | Critère de sortie | Priorité |
-|---|---|---|---|
-| DS-001 | Finaliser l’inventaire des sources | Tableau avec couverture, résolution, licence, accès et limites | Haute |
-| DS-002 | Définir la cible d’onset | Formule, paramètres, justification et test sur cas synthétiques | Haute |
-| DS-003 | Écrire le protocole de validation | Partition temporelle et métriques approuvées avant entraînement | Haute |
-| DS-004 | Préparer l’environnement | Installation reproductible et commande de vérification | Haute |
+- **Terminé :** preuve et validation disponibles.
+- **En cours :** tâche autorisée par le jalon courant.
+- **Bloqué :** tâche définie mais dépendance ou incident non résolu.
+- **À faire :** tâche non commencée.
+- **Hors périmètre immédiat :** tâche volontairement différée.
 
-## Jalon 1 — MVP onset
+## Jalon J0 — Gouvernance et reproductibilité
 
-| ID | Tâche | Critère de sortie | Priorité |
-|---|---|---|---|
-| DS-010 | Télécharger un échantillon ouvert | Script idempotent, manifeste de provenance et respect de licence | Haute |
-| DS-011 | Contrôler qualité et valeurs manquantes | Rapport de couverture par région et année | Haute |
-| DS-012 | Implémenter la baseline déterministe | Tests unitaires et sorties reproductibles | Haute |
-| DS-013 | Construire les variables précoces | Variables définies sans accès au futur | Haute |
-| DS-014 | Entraîner le modèle candidat | Validation temporelle et configuration versionnée | Moyenne |
-| DS-015 | Produire le rapport de backtesting | Métriques, intervalles, erreurs et limites | Haute |
+| ID | Tâche | Statut | Critère de sortie | Artefacts |
+|---|---|---|---|---|
+| GOV-001 | Créer le contexte vivant | Terminé | Reprise inter-agent possible | `CONTEXT.md` |
+| GOV-002 | Structurer la documentation | Terminé | Index, cadrage, spécifications et rapports présents | `docs/` |
+| GOV-003 | Historiser décisions et sessions | En cours permanent | Chaque étape clôturée possède une trace | `docs/04-tracabilite/` |
+| GOV-004 | Maintenir la feuille de route | Terminé | Jalons, dépendances, risques et prochain objectif unique | `feuille-de-route.md` |
 
-## Jalon 2 — Rendement exploratoire
+## Jalon J1 — Acquisition contrôlée et qualité
 
-| ID | Tâche | Critère de sortie | Priorité |
-|---|---|---|---|
-| DS-020 | Auditer les rendements par culture | Couverture régionale et temporelle documentée | Haute |
-| DS-021 | Relier climat et rendement | Jeu analytique avec contrôle des jointures | Haute |
-| DS-022 | Tester une baseline de rendement | Comparaison transparente, sans promesse opérationnelle | Moyenne |
+| ID | Tâche | Statut | Critère de sortie | Artefacts |
+|---|---|---|---|---|
+| DS-010 | Pipeline CHIRPS idempotent | Terminé | Téléchargement, recadrage, nettoyage, checksum et manifeste | `src/chirps_pipeline.py` |
+| DS-010B | Pilote multi-zone isolé | Terminé | Un brut partagé, une sortie par zone, manifeste global | `src/multi_zone_download.py` |
+| DS-011 | Validateur de manifeste | Terminé | Dates, zones, doublons, erreurs, fichiers et checksums contrôlés | `src/manifest_validator.py` |
+| DS-011A | Collecte courte multi-zone valide | En cours autorisé | Manifeste court sans anomalie et rapport qualité archivé | Données hors Git + rapport JSON |
+| DS-011B | Rapport multi-années de couverture | Bloqué | Couverture par zone et année sur période retenue | Rapport qualité et tables |
 
-## Jalon 3 — Décision et restitution
+## Jalon J2 — Série quotidienne et onset
 
-| ID | Tâche | Critère de sortie | Priorité |
-|---|---|---|---|
-| DS-030 | Formaliser les contraintes agricoles | Consultation agronomique et registre des hypothèses | Haute |
-| DS-031 | Prototyper l’optimisation | Scénarios et analyse de sensibilité | Moyenne |
-| DS-032 | Concevoir la restitution d’incertitude | Maquettes testées avec utilisateurs cibles | Moyenne |
+| ID | Tâche | Statut | Critère de sortie | Artefacts |
+|---|---|---|---|---|
+| DS-012 | Baselines d’onset | Terminé | Deux méthodes explicables et tests synthétiques | `src/onset.py` |
+| DS-013 | Agrégation quotidienne | Terminé | Moyenne, couverture, valeurs extrêmes et dates manquantes | `src/chirps_series.py` |
+| DS-014 | Analyse annuelle sans fuite | Terminé au niveau code | Climatologie indépendante, statuts et tests | `src/season_analysis.py` |
+| DS-014A | Calcul multi-zone réel | Bloqué | Séries valides et résultats par zone/année | J1 validé |
+| DS-015 | Rapport d’onset | À faire | Divergences, cas atypiques, incertitudes et limites | Rapport scientifique |
+
+## Jalon J3 — Validation temporelle
+
+| ID | Tâche | Statut | Critère de sortie | Artefacts |
+|---|---|---|---|---|
+| DS-020 | Protocole de backtesting | À faire | Partition temporelle, métriques et paramètres gelés | Protocole validé |
+| DS-021 | Référence de validation | Bloqué | Stations, observations de semis ou source locale documentée | Registre des données |
+| DS-022 | Évaluation hors échantillon | Bloqué | Erreurs par zone/année et incertitudes | Rapport de backtesting |
+
+## Jalon J4 — Rendement exploratoire
+
+| ID | Tâche | Statut | Critère de sortie | Artefacts |
+|---|---|---|---|---|
+| DS-030 | Auditer FAOSTAT/HDX | À faire, après J2 | Couverture, unités, cultures et niveau géographique vérifiés | Rapport de données |
+| DS-031 | Auditer HarvestStat-Africa | À faire, après J2 | Licence, sources et jointures vérifiées | Rapport de données |
+| DS-032 | Baseline rendement | Hors périmètre immédiat | Seulement si les audits sont favorables | Expérience versionnée |
+
+## Jalon J5 — Décision et restitution
+
+| ID | Tâche | Statut | Critère de sortie | Artefacts |
+|---|---|---|---|---|
+| DS-040 | Formaliser les contraintes agricoles | Hors périmètre immédiat | Hypothèses et consultation locale documentées | Registre des hypothèses |
+| DS-041 | Prototyper l’optimisation | Hors périmètre immédiat | Scénarios et sensibilité | Rapport |
+| DS-042 | Rapport non technique | En cours permanent | Résultats, incertitudes et limites compréhensibles | `docs/03-rapport-scientifique/` |
+
+## Prochain objectif unique
+
+**DS-011A est la seule tâche autorisée à démarrer maintenant.** Elle doit être clôturée par un manifeste validé, ou marquée bloquée avec la cause, l’impact et la décision de reprise. Toute autre tâche de code est différée pour éviter la dispersion.
 
 ## Définition générale de terminé
 
-Une tâche est terminée si elle possède un résultat vérifiable, une documentation suffisante pour être reprise, des tests ou contrôles adaptés et une entrée dans le journal des décisions lorsque son choix modifie la méthode.
-
-## État au 2026-09-17
-
-DS-010 est implémentée pour CHIRPS v3 quotidien : téléchargement idempotent, découpage BBOX, nettoyage des valeurs invalides, SHA-256 et manifeste JSON. DS-011 est partiellement couverte par les contrôles de valeurs négatives, non finies et nodata ; l’agrégation quotidienne, le contrôle de couverture et l’analyse annuelle leave-one-year-out sont maintenant disponibles, mais le rapport géographique multi-années reste à produire.
-
-Le pilote multi-zone est implémenté et testé. Un essai réel d’un jour a réussi pour les cinq zones ; l’essai de trois jours a été interrompu pendant le téléchargement du deuxième raster après détection d’un blocage réseau prolongé. Aucune conclusion scientifique multi-jours n’est tirée de cet essai.
-
-Le contrôle qualité des manifestes est maintenant implémenté : complétude date/zone, doublons, erreurs, existence des fichiers et checksums SHA-256. L’analyse multi-années reste bloquée jusqu’à l’obtention d’un manifeste valide sur la période retenue.
+Une tâche est terminée si elle possède un résultat vérifiable, une documentation suffisante pour être reprise, des tests ou contrôles adaptés, une provenance et une entrée dans le journal des décisions ou des sessions lorsque son choix modifie la méthode. Le commit doit respecter les conventions Git du projet.
